@@ -1,4 +1,4 @@
-# 뭐먙지 Discord/CLI/Web Bot
+# 뭐먙지 Discord/CLI/Web Bot.
 
 뭐먙지 Discord/CLI/Web Bot입니다. (Node.js + discord.js v14)
 
