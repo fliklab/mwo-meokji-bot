@@ -1,0 +1,19 @@
+{
+  "name": "discord-mwo-meokji-bot",
+  "version": "1.0.0",
+  "description": "뭐먙지 디스코드 봇 기본 스켈레톤",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  }
+}
