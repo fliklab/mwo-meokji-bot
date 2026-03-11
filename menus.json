@@ -1,0 +1,10 @@
+[
+  { "name": "피자", "category": "양식" },
+  { "name": "라면", "category": "한식" },
+  { "name": "치킨", "category": "패스트푸드" },
+  { "name": "김밥", "category": "분식" },
+  { "name": "초밥", "category": "일식" },
+  { "name": "파스타", "category": "양식" },
+  { "name": "햄버거", "category": "패스트푸드" },
+  { "name": "쌀국수", "category": "아시안" }
+]
