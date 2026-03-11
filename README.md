@@ -1,6 +1,6 @@
-# discord-mwo-meokji-bot
+# 뭐먙지 Discord/CLI/Web Bot
 
-간단한 Discord Slash Command 봇입니다. (Node.js + discord.js v14)
+뭐먙지 Discord/CLI/Web Bot입니다. (Node.js + discord.js v14)
 
 ## 1) 설치
 
