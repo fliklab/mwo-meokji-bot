@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest --runInBand",
+    "start:web": "node server.js"
   },
   "keywords": [
     "discord",
@@ -15,8 +16,10 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^14.0.3",
+    "cors": "^2.8.6",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
+    "express": "^5.2.1",
     "inquirer": "^13.3.0"
   },
   "devDependencies": {

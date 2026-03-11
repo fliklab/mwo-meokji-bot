@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뭐먹지 Web</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; }
+      h1 { margin-bottom: 0.5rem; }
+      .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+      button { margin-right: 0.5rem; }
+      input { margin-right: 0.5rem; }
+      pre { background: #111; color: #0f0; padding: 1rem; border-radius: 8px; overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <h1>🍽️ 뭐먹지 Web</h1>
+    <p>버튼으로 Discord 커맨드 동작을 간단히 시뮬레이션할 수 있어요.</p>
+
+    <div class="card">
+      <h2>추천</h2>
+      <button id="recommendBtn">/recommend</button>
+    </div>
+
+    <div class="card">
+      <h2>메뉴 추가</h2>
+      <input id="addName" placeholder="메뉴 이름" />
+      <input id="addCategory" placeholder="카테고리(선택)" />
+      <button id="addBtn">/add-menu</button>
+    </div>
+
+    <div class="card">
+      <h2>메뉴 삭제</h2>
+      <input id="delName" placeholder="삭제할 메뉴 이름" />
+      <button id="delBtn">/del-menu</button>
+    </div>
+
+    <h2>응답(JSON)</h2>
+    <pre id="output">아직 요청 없음</pre>
+
+    <script>
+      const output = document.getElementById('output');
+
+      function render(data) {
+        output.textContent = JSON.stringify(data, null, 2);
+      }
+
+      async function callApi(url, options = {}) {
+        const res = await fetch(url, {
+          headers: { 'Content-Type': 'application/json' },
+          ...options,
+        });
+        const data = await res.json();
+        render({ status: res.status, ...data });
+      }
+
+      document.getElementById('recommendBtn').addEventListener('click', () => {
+        callApi('/recommend');
+      });
+
+      document.getElementById('addBtn').addEventListener('click', () => {
+        const name = document.getElementById('addName').value;
+        const category = document.getElementById('addCategory').value;
+        callApi('/add-menu', {
+          method: 'POST',
+          body: JSON.stringify({ name, category }),
+        });
+      });
+
+      document.getElementById('delBtn').addEventListener('click', () => {
+        const name = document.getElementById('delName').value;
+        callApi('/del-menu', {
+          method: 'POST',
+          body: JSON.stringify({ name }),
+        });
+      });
+    </script>
+  </body>
+</html>
